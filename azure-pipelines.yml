@@ -136,7 +136,7 @@ stages:
           [
               {
               "name": "appToken",
-              "value": "$(mySecret)",
+              "value": "$(mySecret)"
               }
           ]
 
