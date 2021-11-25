@@ -132,6 +132,13 @@ stages:
         loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
+        secrets: |
+          [
+              {
+              "name": "appToken",
+              "value": "$(mySecret)",
+              }
+          ]
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
       artifact: results
