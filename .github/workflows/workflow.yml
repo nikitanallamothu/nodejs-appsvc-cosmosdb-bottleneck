@@ -80,7 +80,7 @@ jobs:
             [
                {
                 "name": "appToken",
-                "value": ${{ secrets.SECRET_VARIABLE }}
+                "value": "${{ secrets.SECRET_VARIABLE }}"
                }
             ]
           env: | 
