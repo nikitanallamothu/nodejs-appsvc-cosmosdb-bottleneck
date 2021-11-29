@@ -8,8 +8,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: "gh-sampelappnew"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "<Name of your load test resource>"
-  LOAD_TEST_RESOURCE_GROUP: "<Name of your load test resource group>"
+  LOAD_TEST_RESOURCE: "nikita-prod"
+  LOAD_TEST_RESOURCE_GROUP: "ninallam-loadtest-rg"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
   LOCATION: "West US"
@@ -56,3 +56,36 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
+  loadtest:
+    name: Load Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub Actions 
+        uses: actions/checkout@v2
+          
+      - name: Login to Azure
+        uses: azure/login@v1
+        continue-on-error: false
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+      - name: 'Azure Load Testing'
+        uses: ninallam/load-testing@v1
+        with:
+          loadTestConfigFile: 'SampleApp.yaml'
+          loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
+          resourceGroup: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
+          secrets: |
+            [
+               {
+                "name": "appToken",
+                "value": ${{ secrets.SECRET_VARIABLE }}
+               }
+            ]
+          env: | 
+            [
+              {
+                "name": "webapp",
+                "value": "gh-sampelappnew"
+              }
+            ]
