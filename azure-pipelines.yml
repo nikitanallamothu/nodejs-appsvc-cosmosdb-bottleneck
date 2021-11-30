@@ -12,8 +12,8 @@ variables:
   webAppName: 'ado-sampleapp'
   serviceConnection: 'Cloud-Native-Testing-IDC-Test(7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a)'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'nikita-prod'
-  loadTestResourceGroup: 'ninallam-loadtest-rg'
+  loadTestResource: 'nikita-eastus-rg'
+  loadTestResourceGroup: 'nikita-eastus'
   location: 'EAST US'
 
 
