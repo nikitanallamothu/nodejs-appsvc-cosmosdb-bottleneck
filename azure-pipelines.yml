@@ -132,13 +132,13 @@ stages:
         loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: 'nikita-eastus-rg'
         loadTestResource: 'nikita-eastus'
-        # secrets: |
-        #   [
-        #     {
-        #       "name": "appToken",
-        #       "value": "$(mySecret)"
-        #     }
-        #   ]
+        secrets: |
+          [
+              {
+              "name": "appToken",
+              "value": "$(mySecret)"
+              }
+          ]
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
       artifact: results
