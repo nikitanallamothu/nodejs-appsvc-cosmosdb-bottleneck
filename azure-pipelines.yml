@@ -128,17 +128,15 @@ stages:
     steps:
     - task: AzureLoadTest@1
       inputs:
-        azureSubscription: $(serviceConnection)
+        azureSubscription: 'cnt'
         loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: $(loadTestResourceGroup)
-        loadTestResource: $(loadTestResource)
+        resourceGroup: 'nikita-eastus-rg'
+        loadTestResource: 'nikita-eastus'
         secrets: |
-          [
           {
-            "name": "appToken",
-            "value": "$(secretVariable)"
-          }
-          ]
+                        "name": "appToken",
+                        "value": "$(secretVariable)"
+           }
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
       artifact: results
