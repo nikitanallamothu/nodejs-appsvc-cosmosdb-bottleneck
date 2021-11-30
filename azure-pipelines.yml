@@ -130,8 +130,8 @@ stages:
       inputs:
         azureSubscription: 'cnt'
         loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: 'nikita-eastus-rg'
-        loadTestResource: 'nikita-eastus'
+        resourceGroup: $(loadTestResourceGroup)
+        loadTestResource: $(loadTestResource)
         secrets: |
           [
               {
