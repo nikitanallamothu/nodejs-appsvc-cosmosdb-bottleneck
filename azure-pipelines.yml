@@ -12,8 +12,8 @@ variables:
   webAppName: 'ado-sampleapp'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'nikita-auseast'
-  loadTestResourceGroup: 'nikita-auseast-rg'
+  loadTestResource: 'nikita-eastus2'
+  loadTestResourceGroup: 'nikita-eastus2-rg'
   location: 'EAST US'
 
 
