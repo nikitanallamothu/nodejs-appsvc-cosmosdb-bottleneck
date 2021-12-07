@@ -10,6 +10,14 @@ var utils = require('./utils.js');
 
 var lastTimestamp = 0;
 var server = http.createServer(function (req, res) {
+    console.log(req.headers['x-secret']);
+    console.log(process.env.SECRET_VALUE);
+    if(req.headers['x-secret'] != process.env.SECRET_VALUE) {
+        res.writeHead(403, "Unauthorized");
+        res.end();
+        return;
+    }
+
     var reqUrl = req.url.replace(/^\/+|\/+$/g, '');
     var method = req.method.toLowerCase();
     
