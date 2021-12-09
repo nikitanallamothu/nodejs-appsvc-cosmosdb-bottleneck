@@ -134,10 +134,10 @@ stages:
         loadTestResource: $(loadTestResource)
         secrets: |
           [
-              {
-              "name": "appToken",
-              "value": "$(mySecret)"
-              }
+          {
+          "name": "appToken",
+          "value": "$(mySecret)"
+          }
           ]
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
