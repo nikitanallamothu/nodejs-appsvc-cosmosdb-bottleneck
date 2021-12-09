@@ -3,8 +3,6 @@ testName: SampleAppTestCICD_secrets
 testPlan: SampleApp_Secrets.jmx
 description: 'SampleApp Test Run'
 engineInstances: 1
-configurationFiles:
-  - 'data/CSV_TG_1.csv'
 failureCriteria:
   - avg(response_time_ms) > 5000
   - percentage(error) > 20
