@@ -37,7 +37,7 @@ stages:
     #     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     #     replaceExistingArchive: true
 
-    - publish: $(System.DefaultWorkingDirectory)/$(Build.BuildId).zip
+    - publish: $(System.DefaultWorkingDirectory)
       artifact: drop
 
 # - stage: Deploy
