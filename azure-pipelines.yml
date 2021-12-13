@@ -129,7 +129,7 @@ stages:
     - task: AzureLoadTest@1
       inputs:
         azureSubscription: 'cnt'
-        loadTestConfigFile: 'loadTest/config.yml'
+        loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
         secrets: |
