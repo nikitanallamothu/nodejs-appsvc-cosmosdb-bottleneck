@@ -1,8 +1,11 @@
 version: v0.1
 testName: SampleAppTest_for_merge_secrets
-testPlan: testPlan/testScript.jmx
+testPlan: 'testPlan/testScript.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
 failureCriteria:
   - avg(response_time_ms) > 5000
   - percentage(error) > 20
+configurationFiles:
+  - data/data.csv
+  - data/CSV_TG_1.csv  
