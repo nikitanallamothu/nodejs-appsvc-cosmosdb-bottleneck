@@ -18,27 +18,27 @@ variables:
 
 
 stages:
-- stage: Build
-  displayName: Build 
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: windows-latest
+# - stage: Build
+#   displayName: Build 
+#   jobs:
+#   - job: Build
+#     displayName: Build
+#     pool:
+#       vmImage: windows-latest
 
-    steps:
+#     steps:
 
-    # - task: ArchiveFiles@2
-    #   displayName: 'Archive files'
-    #   inputs:
-    #     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    #     includeRootFolder: false
-    #     archiveType: zip
-    #     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    #     replaceExistingArchive: true
+#     - task: ArchiveFiles@2
+#       displayName: 'Archive files'
+#       inputs:
+#         rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+#         includeRootFolder: false
+#         archiveType: zip
+#         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+#         replaceExistingArchive: true
 
-    - publish: $(System.DefaultWorkingDirectory)
-      artifact: drop
+#     - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+#       artifact: drop
 
 # - stage: Deploy
 #   displayName: Deploy 
@@ -116,29 +116,29 @@ stages:
 #         ScriptType: 'Inline Script'
 #         InlineScript: 'npm install'
 
-# - stage: LoadTest
-#   displayName: Load Test
-#   # dependsOn: Deploy
-#   # condition: succeeded()
-#   jobs:
-#   - job: LoadTest
-#     displayName: Load Test
-#     pool:
-#       vmImage: ubuntu-latest
-#     steps:
-#     - task: AzureLoadTest@1
-#       inputs:
-#         azureSubscription: 'cnt'
-#         loadTestConfigFile: 'SampleApp.yaml'
-#         resourceGroup: $(loadTestResourceGroup)
-#         loadTestResource: $(loadTestResource)
-#         secrets: |
-#           [
-#           {
-#           "name": "appToken",
-#           "value": "$(mySecret)"
-#           }
-#           ]
+- stage: LoadTest
+  displayName: Load Test
+  # dependsOn: Deploy
+  # condition: succeeded()
+  jobs:
+  - job: LoadTest
+    displayName: Load Test
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: AzureLoadTest@1
+      inputs:
+        azureSubscription: 'cnt'
+        loadTestConfigFile: 'SampleApp.yaml'
+        resourceGroup: $(loadTestResourceGroup)
+        loadTestResource: $(loadTestResource)
+        secrets: |
+          [
+          {
+          "name": "appToken",
+          "value": "$(mySecret)"
+          }
+          ]
 
-#     - publish: $(System.DefaultWorkingDirectory)/loadTest
-#       artifact: results
+    - publish: $(System.DefaultWorkingDirectory)/loadTest
+      artifact: results
