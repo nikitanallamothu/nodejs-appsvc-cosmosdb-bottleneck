@@ -1,5 +1,5 @@
 version: v0.1
-testName: SampleAppTest_for_merge_secrets
+testName: SampleAppTest_for_push_secrets
 testPlan: 'SampleApp_Secrets.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
