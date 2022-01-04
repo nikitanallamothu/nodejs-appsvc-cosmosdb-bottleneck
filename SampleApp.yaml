@@ -1,5 +1,5 @@
 version: v0.1
-testName: SampleAppTest_for_push_secrets
+testName: SampleAppTest_for_env
 testPlan: 'SampleApp.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
