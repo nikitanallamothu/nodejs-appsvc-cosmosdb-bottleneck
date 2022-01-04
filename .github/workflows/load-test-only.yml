@@ -8,8 +8,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: "gh-sampelappnew"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "nikita-eastus2"
-  LOAD_TEST_RESOURCE_GROUP: "nikita-eastus2-rg"
+  LOAD_TEST_RESOURCE: "secret_loadtest"
+  LOAD_TEST_RESOURCE_GROUP: "secret_loadtest-rg"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
   LOCATION: "West US"
@@ -33,7 +33,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
         
       - name: 'Azure Load Testing'
-        uses: azure/load-testing@v1
+        uses: azure/load-testing@v1.0.7
         with:
           loadTestConfigFile: 'SampleApp.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
@@ -49,7 +49,7 @@ jobs:
             [
               {
                 "name": "webapp",
-                "value": "gh-sampelappnew"
+                "value": "${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
               }
             ]
       - uses: actions/upload-artifact@v2
