@@ -113,8 +113,8 @@ stages:
         appType: 'webApp'
         WebAppName: $(webAppName)
         packageForLinux: '$(Pipeline.Workspace)/$(Build.BuildId).zip'
-        # ScriptType: 'Inline Script'
-        # InlineScript: 'npm install'
+        ScriptType: 'Inline Script'
+        InlineScript: 'npm install'
 
 - stage: LoadTest
   displayName: Load Test
