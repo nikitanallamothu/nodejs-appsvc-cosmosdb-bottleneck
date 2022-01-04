@@ -9,7 +9,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  webAppName: 'ado-sampleapp'
+  webAppName: 'env-sampleapp'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
   loadTestResource: 'secret_loadtest'
@@ -132,13 +132,20 @@ stages:
         loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
-        secrets: |
+        env: |
           [
             {
-            "name": "appToken",
-            "value": "$(mySecret)"
+            "name": "webapp",
+            "value": "$(webAppName).azurewebsites.net"
             }
           ]
+        # secrets: |
+        #   [
+        #     {
+        #     "name": "appToken",
+        #     "value": "$(mySecret)"
+        #     }
+        #   ]
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
       artifact: results
