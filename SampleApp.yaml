@@ -1,6 +1,6 @@
 version: v0.1
 testName: SampleAppTest_for_env
-testPlan: 'SampleApp_Secrets.jmx'
+testPlan: 'SampleApp.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
 failureCriteria:
