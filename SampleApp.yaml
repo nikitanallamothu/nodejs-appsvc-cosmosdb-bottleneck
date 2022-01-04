@@ -1,8 +1,8 @@
 version: v0.1
 testName: SampleAppTest_for_push_secrets
-testPlan: 'SampleApp_Secrets.jmx'
+testPlan: 'SampleApp.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
 failureCriteria:
-  - avg(response_time_ms) > 50
+  - avg(response_time_ms) > 50000
   - percentage(error) > 20
