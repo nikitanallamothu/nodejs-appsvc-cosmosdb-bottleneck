@@ -61,7 +61,7 @@ stages:
         location: $(location)
         templateLocation: 'Linked artifact'
         csmFile: '$(System.DefaultWorkingDirectory)/windows-webapp-template.json'
-        overrideParameters: '-webAppName $(webAppName) -hostingPlanName $(webAppName)-host -appInsightsLocation $(location) -databaseAccountId $(webAppName)db -databaseAccountLocation $(location)'
+        overrideParameters: '-webAppName $(webAppName) -hostingPlanName $(webAppName)-host -appInsightsLocation "$(location)" -databaseAccountId $(webAppName)db -databaseAccountLocation "$(location)"'
         deploymentMode: 'Incremental'
         deploymentOutputs: 'output'
     
