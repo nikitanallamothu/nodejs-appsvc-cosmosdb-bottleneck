@@ -12,8 +12,8 @@ variables:
   webAppName: 'secret-sampleapp'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'secret_loadtest'
-  loadTestResourceGroup: 'secret_loadtest-rg'
+  loadTestResource: 'alt-neu'
+  loadTestResourceGroup: 'nikita-neu-rg'
   location: 'East US'
 
 
