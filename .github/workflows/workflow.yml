@@ -7,9 +7,10 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "gh-sampelappnew"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "nikita-prod"
-  LOAD_TEST_RESOURCE_GROUP: "ninallam-loadtest-rg"
+  AZURE_WEBAPP_NAME: "demo-ninallam"    # set this to your application's name
+  LOAD_TEST_RESOURCE: "demo-ninallam"
+  LOAD_TEST_RESOURCE_GROUP: "demo-ninallam-rg"
+  LOAD_TEST_LOCATION: "North Europe"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
   LOCATION: "West US"
@@ -69,6 +70,13 @@ jobs:
         continue-on-error: false
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: Create Azure Load Testing resource
+        uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
+          template: ./ARMTemplates/template.json
+          parameters: name=${{ env.LOAD_TEST_RESOURCE }} location=${{ env.LOAD_TEST_LOCATION }}
         
       - name: 'Azure Load Testing'
         uses: azure/load-testing@v1.0.5
