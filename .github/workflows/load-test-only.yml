@@ -46,10 +46,10 @@ jobs:
         with:
           resourceGroupName: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
           template: ./ARMTemplates/template.json
-          parameters: name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOAD_TEST_LOCATION }}" tags= {"tagName1":"tagValue1"}
+          parameters: name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOAD_TEST_LOCATION }}" tags= "{}"
         
       - name: 'Azure Load Testing'
-        uses: azure/load-testing@v1.0.7
+        uses: azure/load-testing@v1
         with:
           loadTestConfigFile: 'SampleApp.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
