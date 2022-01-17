@@ -39,7 +39,7 @@ jobs:
         with:
           inlineScript: |
             az group create --name "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --location "${{ env.LOAD_TEST_LOCATION }}"
-            $deploymentOutputs = az deployment group create --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --mode Incremental --template-file ./ARMTemplates/template.json --parameters name=${{ env.LOAD_TEST_RESOURCE }} --parameters location="${{ env.LOAD_TEST_LOCATION }}" -o json
+            $deploymentOutputs = az deployment group create --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --mode Incremental --template-file ./ARMTemplates/template.json --parameters name=${{ env.LOAD_TEST_RESOURCE }} --parameters location="${{ env.LOAD_TEST_LOCATION }}" --parameters tags={"tagName":"tagValue"} -o json
           azPSVersion: "latest" 
         
       - name: 'Azure Load Testing'
