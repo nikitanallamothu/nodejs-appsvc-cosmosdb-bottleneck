@@ -13,11 +13,8 @@ variables:
   location: 'East US'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'cicd-template-ado-rg'
-  loadTestResourceGroup: 'cicd-template-ado'
-  loadTestLocation: 'North Europe'
-
-
+  loadTestResource: 'cicd-template-ado'
+  loadTestResourceGroup: 'cicd-template-ado-rg'
 
 stages:
 # - stage: Build
@@ -136,11 +133,11 @@ stages:
         subscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
         action: 'Create Or Update Resource Group'
         resourceGroupName: $(loadTestResourceGroup)
-        location: '$(loadTestLocation)'
+        location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/template.json'
         csmParametersFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/parameters.json'
-        overrideParameters: '-name $(loadTestResource) -location "$(loadTestLocation)"'
+        overrideParameters: '-name $(loadTestResource) -location "$(location)"'
         deploymentMode: 'Incremental'
 
     - task: AzureLoadTest@1
