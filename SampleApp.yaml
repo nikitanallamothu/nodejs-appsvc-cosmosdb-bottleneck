@@ -7,5 +7,5 @@ failureCriteria:
   - avg(response_time_ms) > 50000
   - percentage(error) > 20
 secrets:
-  - name: my-secret
+  - name: appToken
     value: https://nikita-sampleapp.vault.azure.net/secrets/defaultSecret
