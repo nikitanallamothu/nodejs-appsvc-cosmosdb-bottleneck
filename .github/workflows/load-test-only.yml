@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "secret-sampleapp"    # set this to your application's name
+  AZURE_WEBAPP_NAME: "demo-ninallam"    # set this to your application's name
   LOAD_TEST_RESOURCE: "gh-loadtest"
   LOAD_TEST_RESOURCE_GROUP: "gh-loadtest-rg"
   LOAD_TEST_LOCATION: "East US"
@@ -43,7 +43,7 @@ jobs:
           azPSVersion: "latest" 
         
       - name: 'Azure Load Testing'
-        uses: azure/load-testing@v1
+        uses: azure/load-testing@v1.0.8
         with:
           loadTestConfigFile: 'SampleApp.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
