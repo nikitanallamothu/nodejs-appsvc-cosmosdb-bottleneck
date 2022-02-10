@@ -39,13 +39,6 @@ jobs:
           loadTestConfigFile: 'SampleApp.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
           resourceGroup: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
-          secrets: |
-            [
-               {
-                "name": "appToken",
-                "value": "${{ secrets.MY_SECRET }}"
-               }
-            ]
           env: | 
             [
               {
