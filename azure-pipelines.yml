@@ -143,7 +143,7 @@ stages:
     - task: AzureLoadTest@1
       inputs:
         azureSubscription: 'cnt'
-        loadTestConfigFile: 'SampleApp.jmx'
+        loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
         env: |
