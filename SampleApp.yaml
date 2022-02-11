@@ -1,5 +1,5 @@
 version: v0.1
-testName: 'my Load@Test'
+testName: 'myLoadTest'
 testPlan: SampleApp_Secrets_wrong.jmx
 description: 'SampleApp Test Run'
 engineInstances: 1
