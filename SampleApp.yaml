@@ -1,5 +1,4 @@
 version: v0.1
-testName: SampleAppTest_for_ado
 testPlan: 'SampleApp_Secrets.jmx'
 description: 'SampleApp Test Run'
 engineInstances: 1
