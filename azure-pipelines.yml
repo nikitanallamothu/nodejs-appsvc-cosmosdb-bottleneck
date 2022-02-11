@@ -9,12 +9,12 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  webAppName: 'secret-sampleapp'
+  webAppName: 'demo-ninallam'
   location: 'East US'
-  serviceConnection: 'cnt'
+  serviceConnection: 'new-cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'new-resource-ado'
-  loadTestResourceGroup: 'new-resource-ado-rg'
+  loadTestResource: 'malt-new'
+  loadTestResourceGroup: 'malt-new-rg'
 
 stages:
 # - stage: Build
@@ -126,19 +126,19 @@ stages:
       vmImage: ubuntu-latest
     steps:
     
-    - task: AzureResourceManagerTemplateDeployment@3
-      inputs:
-        deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'cnt'
-        subscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: $(loadTestResourceGroup)
-        location: '$(location)'
-        templateLocation: 'Linked artifact'
-        csmFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/template.json'
-        csmParametersFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/parameters.json'
-        overrideParameters: '-name $(loadTestResource) -location "$(location)"'
-        deploymentMode: 'Incremental'
+    # - task: AzureResourceManagerTemplateDeployment@3
+    #   inputs:
+    #     deploymentScope: 'Resource Group'
+    #     azureResourceManagerConnection: 'cnt'
+    #     subscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
+    #     action: 'Create Or Update Resource Group'
+    #     resourceGroupName: $(loadTestResourceGroup)
+    #     location: '$(location)'
+    #     templateLocation: 'Linked artifact'
+    #     csmFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/template.json'
+    #     csmParametersFile: '$(System.DefaultWorkingDirectory)/ARMTemplates/parameters.json'
+    #     overrideParameters: '-name $(loadTestResource) -location "$(location)"'
+    #     deploymentMode: 'Incremental'
 
     - task: AzureLoadTest@1
       inputs:
@@ -153,13 +153,13 @@ stages:
             "value": "$(webAppName).azurewebsites.net"
             }
           ]
-        # secrets: |
-        #   [
-        #     {
-        #     "name": "appToken",
-        #     "value": "$(mySecret)"
-        #     }
-        #   ]
+        secrets: |
+          [
+            {
+            "name": "appToken",
+            "value": "$(mySecret)"
+            }
+          ]
 
     - publish: $(System.DefaultWorkingDirectory)/loadTest
       artifact: results
