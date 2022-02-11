@@ -11,10 +11,10 @@ pool:
 variables:
   webAppName: 'demo-ninallam'
   location: 'East US'
-  serviceConnection: 'new-cnt'
+  serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
   loadTestResource: 'malt-new'
-  loadTestResourceGroup: 'malt-new-rg-wrong'
+  loadTestResourceGroup: 'malt-new-rg'
 
 stages:
 # - stage: Build
@@ -143,7 +143,7 @@ stages:
     - task: AzureLoadTest@1
       inputs:
         azureSubscription: 'cnt'
-        loadTestConfigFile: 'SampleApp.yaml'
+        loadTestConfigFile: 'SampleApp.jmx'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
         env: |
