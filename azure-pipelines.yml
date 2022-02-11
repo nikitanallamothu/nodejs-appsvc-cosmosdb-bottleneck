@@ -13,8 +13,8 @@ variables:
   location: 'East US'
   serviceConnection: 'new-cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'malt-new-wrong'
-  loadTestResourceGroup: 'malt-new-rg'
+  loadTestResource: 'malt-new'
+  loadTestResourceGroup: 'malt-new-rg-wrong'
 
 stages:
 # - stage: Build
