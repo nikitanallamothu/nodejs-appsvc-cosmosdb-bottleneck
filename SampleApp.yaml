@@ -8,4 +8,4 @@ failureCriteria:
   - percentage(error) > 20
 secrets:
   - name: appToken
-    value: https://nikita-sampleapp.vault.azure.net/secrets/defaultSecret
+    value: https://nikita-sampleapp.vault.azure.net/secrets/defaultSecret/971b626b45944f37b33975a759bd6b21
