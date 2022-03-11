@@ -9,12 +9,12 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  webAppName: 'demo-ninallam'
+  webAppName: 'contoso-sampleapp'
   location: 'East US'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'malt-new'
-  loadTestResourceGroup: 'malt-new-rg'
+  loadTestResource: 'test-auseast'
+  loadTestResourceGroup: 'nikita-auseast-rg'
 
 stages:
 # - stage: Build
