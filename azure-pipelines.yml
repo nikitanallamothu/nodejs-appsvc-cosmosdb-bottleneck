@@ -146,13 +146,13 @@ stages:
         loadTestConfigFile: 'SampleApp.yaml'
         resourceGroup: $(loadTestResourceGroup)
         loadTestResource: $(loadTestResource)
-        env: |
-          [
-            {
-            "name": "webapp",
-            "value": "$(webAppName).azurewebsites.net"
-            }
-          ]
+        # env: |
+        #   [
+        #     {
+        #     "name": "webapp",
+        #     "value": "$(webAppName).azurewebsites.net"
+        #     }
+        #   ]
         # secrets: |
         #   [
         #     {
