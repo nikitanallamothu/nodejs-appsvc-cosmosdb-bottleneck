@@ -2,7 +2,7 @@ version: v0.1
 testName: 'myLoadTest'
 testPlan: SampleApp_Secrets.jmx
 description: 'SampleApp Test Run'
-engineInstances: 11
+engineInstances: 1
 failureCriteria:
   - avg(response_time_ms) > 50000
   - percentage(error) > 20
