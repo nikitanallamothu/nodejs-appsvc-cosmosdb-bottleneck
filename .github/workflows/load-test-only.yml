@@ -8,8 +8,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: "contoso-sampleapp"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "test-auseast"
-  LOAD_TEST_RESOURCE_GROUP: "test-auseast-rg"
+  LOAD_TEST_RESOURCE: "malt-demo"
+  LOAD_TEST_RESOURCE_GROUP: "malt-demo-rg"
   LOAD_TEST_LOCATION: "East US"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
