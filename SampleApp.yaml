@@ -9,7 +9,6 @@ failureCriteria:
 secrets:
   - name: appToken
     value: https://nikita-sampleapp.vault.azure.net/secrets/defaultSecret/971b626b45944f37b33975a759bd6b21
-keyVaultReferenceIdentity: /subscriptions/7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a/resourcegroups/uami-test-rg/providers/microsoft.managedidentity/userassignedidentities/test-uami
 env:
 - name: webapp
   value: contoso-sampleapp.azurewebsites.net
