@@ -13,7 +13,7 @@ variables:
   location: 'East US'
   serviceConnection: 'cnt'
   azureSubscriptionId: '7c71b563-0dc0-4bc0-bcf6-06f8f0516c7a'
-  loadTestResource: 'test-auseast'
+  loadTestResource: 'Test-auseast'
   loadTestResourceGroup: 'nikita-auseast-rg'
 
 stages:
