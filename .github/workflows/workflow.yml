@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "demo-ninallam"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "demo-ninallam"
-  LOAD_TEST_RESOURCE_GROUP: "demo-ninallam-rg"
+  AZURE_WEBAPP_NAME: "demo-sampleapp"    # set this to your application's name
+  LOAD_TEST_RESOURCE: "demo-sampleapp"
+  LOAD_TEST_RESOURCE_GROUP: "demo-sampleapp-rg"
   LOAD_TEST_LOCATION: "East US"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
