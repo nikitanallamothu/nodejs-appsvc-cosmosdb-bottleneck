@@ -7,15 +7,15 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "demo-sampleapp"    # set this to your application's name
+  AZURE_WEBAPP_NAME: "contoso-sampleapp"    # set this to your application's name
   LOAD_TEST_RESOURCE: "demo-sampleapp"
   LOAD_TEST_RESOURCE_GROUP: "demo-sampleapp-rg"
   LOAD_TEST_LOCATION: "East US"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
-  LOCATION: "East US"
-  APPINSIGHTLOCATION: "East US"
-  DATABASEACCOUNTLOCATION: "eastus"
+  LOCATION: "North Europe"
+  APPINSIGHTLOCATION: "North Europe"
+  DATABASEACCOUNTLOCATION: "North Europe"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
